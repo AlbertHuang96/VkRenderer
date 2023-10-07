@@ -728,7 +728,7 @@ public:
 		VK_CHECK_RESULT(vkCreateGraphicsPipelines(device, pipelineCache, 1, &pipelineCI, nullptr, &pipelines.sceneShadowPCF));
 		//--------------------------------------------------------------------------------------
 
-		// for rendering shader complexity
+		// for rendering debug overdraw pixels
 		depthStencilStateCI.depthTestEnable = VK_FALSE;
 		depthStencilStateCI.front.compareOp = VK_COMPARE_OP_EQUAL;
 		depthStencilStateCI.front.reference = 1;
