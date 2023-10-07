@@ -78,7 +78,7 @@ function(buildExamples)
 endfunction(buildExamples)
 
 set(EXAMPLES
-	shadercomplexity
+	debugoverdraw
 )
 
 buildExamples()
