@@ -1,9 +1,10 @@
 # RenderTools
 ---
 This project is based on Sascha Willems's demo framework which is in the base directory.   
+![image](https://github.com/AlbertHuang96/VkRendererTools/blob/main/images/debugoverdraw2.png)
 
 #### Debug overdraw
-Rendering scene with multiple lights may lead to severe overdraw problems in **forward rendering**.
+Rendering scene with multiple lights may lead to severe overdraw problems in **forward rendering**.   
 To count the number of times that fragment shader shade a pixel when rendering the scene,   
 setting up stencil test for the Sponza scene rendering pipeline as the following:   
 ```
@@ -18,6 +19,7 @@ depthStencilStateCI.front.passOp = VK_STENCIL_OP_INCREMENT_AND_CLAMP;
 - Visualize different stencil values on the screen
 - Use the same renderpass when rendering shadow map?
 
+![image](https://github.com/AlbertHuang96/VkRendererTools/blob/main/images/debugoverdraw.png)
 
 #### ZPrepass
 To investigate the methods to reduce overdraw,   
@@ -26,8 +28,10 @@ enabling the early fragment test in the scene rendering fragment shader by
 layout (early_fragment_tests) in;
 ```
 Add a depth prepass as well before scene rendering with an empty fragment shader to fill the depth buffer.
-By turning the prepass on, the framerate gets increased stably to 180-190fps as shown in the screenshot.
+By turning the prepass on, the framerate gets increased stably to 180-190fps as shown in the screenshot.   
 
+
+![image](https://github.com/AlbertHuang96/VkRendererTools/blob/main/images/180-190fps.png)
 
 #### Notice 
 You can select your GPU in the line 1022 by modifying the code in ***.\base\vulkanexamplebase.cpp***. 
