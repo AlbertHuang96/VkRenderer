@@ -1,9 +1,11 @@
 # RenderTools
 ---
+This project is based on Sascha Willems's demo framework which is in the base directory.   
+
 #### Debug overdraw
 Rendering scene with multiple lights may lead to severe overdraw problems in **forward rendering**.
 To count the number of times that fragment shader shade a pixel when rendering the scene,   
-setting up stencil test for the scene rendering pipeline as the following:   
+setting up stencil test for the Sponza scene rendering pipeline as the following:   
 ```
 depthStencilStateCI.stencilTestEnable = VK_TRUE;
 depthStencilStateCI.front.compareOp = VK_COMPARE_OP_ALWAYS;
