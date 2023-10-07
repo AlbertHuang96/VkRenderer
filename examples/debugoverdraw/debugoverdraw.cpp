@@ -28,9 +28,9 @@ public:
 	bool displayShadowMap = false;
 	bool filterPCF = true;
 
-	bool showShaderComplexity1 = false;
-	bool showShaderComplexity2 = false;
-	bool showShaderComplexity3 = false;
+	bool showDebugOverdraw1 = false;
+	bool showDebugOverdraw2 = false;
+	bool showDebugOverdraw3 = false;
 	bool depthPrepass = false;
 
 	// Keep depth range as small as possible
@@ -545,17 +545,17 @@ public:
 				vkCmdBindPipeline(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, (filterPCF) ? pipelines.sceneShadowPCF : pipelines.sceneShadow);
 				scene.draw(drawCmdBuffers[i], vkglTF::RenderFlags::BindImages, pipelineLayout);
 
-				if (showShaderComplexity1)
+				if (showDebugOverdraw1)
 				{
 					vkCmdBindPipeline(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pipelines.shaderComplexity01);
 					scene.draw(drawCmdBuffers[i]);
 				}
-				if (showShaderComplexity2)
+				if (showDebugOverdraw2)
 				{
 					vkCmdBindPipeline(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pipelines.shaderComplexity02);
 					scene.draw(drawCmdBuffers[i]);
 				}
-				if (showShaderComplexity3)
+				if (showDebugOverdraw3)
 				{
 					vkCmdBindPipeline(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pipelines.shaderComplexity03);
 					scene.draw(drawCmdBuffers[i]);
@@ -896,13 +896,13 @@ public:
 			if (overlay->checkBox("enable depth prepass", &depthPrepass)) {
 				buildCommandBuffers();
 			}
-			if (overlay->checkBox("Display shader complexity", &showShaderComplexity1)) {
+			if (overlay->checkBox("Display debug overdraw", &showDebugOverdraw1)) {
 				buildCommandBuffers();
 			}
-			if (overlay->checkBox("Display shader complexity 2", &showShaderComplexity2)) {
+			if (overlay->checkBox("Display debug overdraw 2", &showDebugOverdraw2)) {
 				buildCommandBuffers();
 			}
-			if (overlay->checkBox("Display shader complexity 3", &showShaderComplexity3)) {
+			if (overlay->checkBox("Display debug overdraw 3", &showDebugOverdraw3)) {
 				buildCommandBuffers();
 			}
 			if (overlay->checkBox("Display shadow render target", &displayShadowMap)) {
