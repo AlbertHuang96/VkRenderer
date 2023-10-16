@@ -1,5 +1,15 @@
 # RenderTools
 ---
+  
+### Updated 10.16  
+The first goal on the TODO list has been accomplished.  
+- Fill the depth/stencil attachment and set it as input attachment in the first subpass  
+- Read the input attachment in the second subpass.  
+I will upload the code after I fix the blurry panel.  
+
+![image](https://github.com/AlbertHuang96/VkRendererTools/blob/main/images/debugoverdraw3.png)
+
+
 This project is based on Sascha Willems's demo framework which is in the base directory.  
    
 ![image](https://github.com/AlbertHuang96/VkRendererTools/blob/main/images/debugoverdraw2.png)
